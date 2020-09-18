@@ -54,10 +54,10 @@ def main():
 
     args = arg_parser.parse_args()
     pprint.pprint(args)
-    start(**vars(args))
+    start_worker(**vars(args))
 
 
-def start(export_dir, kafka_bootstrap_servers, kafka_topics):
+def start_worker(export_dir, kafka_bootstrap_servers, kafka_topics):
     def worker_factory(name, start_doc, export_dir):
         example_worker = ExampleWorker()
         return [example_worker], []
