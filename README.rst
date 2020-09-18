@@ -12,8 +12,3 @@ iss-workers
 Independent Bluesky processes.
 
 * Free software: 3-clause BSD license
-
-Features
---------
-
-* TODO
