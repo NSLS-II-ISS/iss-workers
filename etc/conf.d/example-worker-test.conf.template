@@ -1,0 +1,9 @@
+[program:example-worker-test]
+command=<path to virtual environment>/bin/start-example-worker
+    --kafka-bootstrap-servers=127.0.0.1:9092
+    --kafka-topics=test.iss.bluesky.documents
+user=<testing account>
+autostart=true
+autorestart=true
+stderr_logfile=example-worker-test.stderr.log
+stdout_logfile=example-worker-test.stdout.log

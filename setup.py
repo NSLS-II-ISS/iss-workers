@@ -41,11 +41,12 @@ setup(
     long_description=readme,
     author="Brookhaven National Lab",
     author_email='',
-    url='https://github.com/jklynch/iss-workers',
+    url='https://github.com/NSLS-II-ISS/iss-workers',
     python_requires='>={}'.format('.'.join(str(n) for n in min_version)),
     packages=find_packages(exclude=['docs', 'tests']),
     entry_points={
         'console_scripts': [
+            "start-example-worker = iss_workers.example_worker:main"
             # 'command = some.module:some_function',
         ],
     },
