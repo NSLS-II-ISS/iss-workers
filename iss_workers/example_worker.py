@@ -1,13 +1,14 @@
 import argparse
 from functools import partial
+import pprint
 
 import msgpack
 import msgpack_numpy as mpn
 
 import bluesky_kafka
-import databroker
+import databroker.assets.handlers
 import event_model
-import ophyd
+import ophyd.sim
 
 # mpn.patch() is recommended by msgpack-numpy
 # as the way to patch msgpack for numpy
@@ -17,7 +18,7 @@ mpn.patch()
 class ExampleWorker(event_model.SingleRunDocumentRouter):
 
     def start(self, start_doc):
-        print(f"event: {start_doc}")
+        print(f"start: {start_doc}")
 
     def descriptor(self, descriptor_doc):
         print(f"descriptor: {descriptor_doc}")
@@ -26,10 +27,10 @@ class ExampleWorker(event_model.SingleRunDocumentRouter):
         print(f"event: {event_doc}")
 
     def event_page(self, event_page_doc):
-        print(f"event: {event_page_doc}")
+        print(f"event_page: {event_page_doc}")
 
     def stop(self, stop_doc):
-        print(f"event: {stop_doc}")
+        print(f"stop: {stop_doc}")
 
 
 def main():
